@@ -1,0 +1,82 @@
+# Core Data Processing & Analysis
+pandas==2.1.3
+numpy==1.26.2
+scipy==1.11.4
+scikit-learn==1.3.2
+
+# Visualization
+matplotlib==3.8.2
+seaborn==0.13.0
+plotly==5.17.0
+folium==0.14.0
+
+# Machine Learning & Deep Learning
+tensorflow==2.14.0
+torch==2.1.1
+xgboost==2.0.3
+lightgbm==4.0.0
+
+# Time Series & Forecasting
+statsmodels==0.14.0
+pmdarima==2.0.4
+prophet==1.1.5
+
+# Geospatial Analysis
+geopandas==0.14.0
+shapely==2.0.1
+pyproj==3.6.1
+
+# Data Quality & Validation
+great-expectations==0.18.10
+pandasvalidation==0.1.0
+
+# Interactive Dashboards
+streamlit==1.28.1
+dash==2.14.1
+plotly-express==5.17.0
+
+# Utilities
+python-dotenv==1.0.0
+pyyaml==6.0.1
+tqdm==4.66.1
+
+# Jupyter & Development
+jupyter==1.0.0
+jupyterlab==4.0.9
+ipython==8.17.2
+notebook==7.0.6
+ipywidgets==8.1.1
+
+# Code Quality
+black==23.11.0
+flake8==6.1.0
+pylint==3.0.2
+
+# Testing
+pytest==7.4.3
+pytest-cov==4.1.0
+
+# API & Web
+requests==2.31.0
+aiohttp==3.9.1
+
+# Documentation
+sphinx==7.2.6
+sphinx-rtd-theme==2.0.0
+
+# Optimization & Performance
+numba==0.58.1
+bottleneck==1.3.7
+
+# Date/Time Handling
+pytz==2023.3
+python-dateutil==2.8.2
+
+# Optional: GIS & Advanced Visualization
+# folium==0.14.0
+# leaflet (via folium)
+# rasterio==1.3.8
+# geopandas-plotting==0.5.0
+
+# Version Control Tools
+gitpython==3.1.40

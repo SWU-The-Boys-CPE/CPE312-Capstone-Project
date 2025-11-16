@@ -1,0 +1,138 @@
+# Environment & Configuration
+.env
+.env.local
+.env.*.local
+*.config
+
+# Data Files (Raw data is large, not tracked)
+02_Data/Raw/*
+!02_Data/Raw/.gitkeep
+02_Data/Raw/README.md
+
+# Model Artifacts (track processed data, not raw models)
+05_Models/*.pkl
+05_Models/*.joblib
+05_Models/*.h5
+05_Models/*.pth
+05_Models/checkpoints/*
+!05_Models/README.md
+
+# Large Processed Data
+02_Data/Processed/*.csv
+02_Data/Processed/*.parquet
+!02_Data/Processed/README.md
+
+# Results & Outputs
+06_Results/Figures/*.png
+06_Results/Figures/*.jpg
+06_Results/Figures/*.pdf
+06_Results/Predictions/*.csv
+!06_Results/README.md
+
+# Jupyter Notebook Artifacts
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+__pycache__/
+
+# Python
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environments
+venv/
+ENV/
+env/
+.venv
+venv.bak/
+env.bak/
+
+# IDE & Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.project
+.pydevproject
+*.sublime-workspace
+*.sublime-project
+
+# Logs
+logs/
+*.log
+*.log.*
+
+# Temporary Files
+*.tmp
+*.bak
+*.backup
+*~
+.tmp/
+tmp/
+
+# OS Specific
+.DS_Store
+Thumbs.db
+.AppleDouble
+.LSOverride
+._*
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Documentation Build
+docs/_build/
+site/
+
+# IDE Settings
+.vscode/settings.json
+.idea/dictionaries/
+.idea/workspace.xml
+
+# Package Manager
+poetry.lock
+Pipfile.lock
+
+# Sphinx Documentation
+docs/_build/
+
+# Project Specific Ignores
+# Add project-specific files to ignore below
+notebooks/debug/
+notebooks/scratch/
+experiments/
+archive/
+temp/
+
+# Large Binary Files
+*.zip
+*.tar.gz
+*.rar
+
+# Cache Directories
+.cache/
+*/.cache/

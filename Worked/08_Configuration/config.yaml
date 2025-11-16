@@ -1,0 +1,269 @@
+# Project Configuration File
+# YAML format for main project settings
+
+project:
+  name: "CPE312 Capstone - Traffic Flow Optimization"
+  version: "1.0"
+  created: "2025-11-16"
+  duration_weeks: 12
+
+paths:
+  raw_data: "./02_Data/Raw"
+  processed_data: "./02_Data/Processed"
+  external_data: "./02_Data/External"
+  notebooks: "./03_Notebooks"
+  scripts: "./04_Scripts"
+  models: "./05_Models"
+  results: "./06_Results"
+  documentation: "./07_Documentation"
+  configs: "./08_Configuration"
+  logs: "./logs"
+
+data:
+  datasets:
+    - name: "Bangkok Traffic Index"
+      type: "timeseries"
+      source: "CEIC / TrafficIndex.org"
+      frequency: "daily"
+      years: [2019, 2020, 2021, 2022, 2023, 2024, 2025]
+    
+    - name: "US Accidents Dataset"
+      type: "geospatial"
+      source: "Kaggle"
+      records: 2800000
+      years: [2016, 2017, 2018, 2019, 2020, 2021]
+    
+    - name: "OpenStreetMap Road Network"
+      type: "geospatial"
+      source: "OpenStreetMap"
+      format: "GeoJSON/Shapefile"
+    
+    - name: "Public Transit Data"
+      type: "timeseries"
+      source: "Bangkok transit authorities"
+      status: "pending"
+    
+    - name: "Weather Data"
+      type: "timeseries"
+      source: "NOAA/NASA"
+      frequency: "daily"
+
+processing:
+  # Data Cleaning
+  cleaning:
+    remove_duplicates: true
+    handle_missing:
+      method: "interpolation"  # linear, ffill, bfill, interpolation
+      limit: 7  # consecutive NaN limit
+    outlier_detection:
+      method: "iqr"  # zscore, iqr, isolation_forest
+      iqr_multiplier: 1.5
+  
+  # Feature Engineering
+  features:
+    temporal:
+      - hour_of_day
+      - day_of_week
+      - month
+      - season
+      - is_holiday
+      - day_of_month
+    
+    spatial:
+      - district
+      - area_cluster
+      - proximity_to_intersection
+    
+    derived:
+      - congestion_lag_1h
+      - congestion_lag_24h
+      - rolling_avg_7day
+      - rolling_std_7day
+  
+  # Normalization
+  normalization:
+    enabled: true
+    method: "standardscaler"  # standardscaler, minmax, robust
+    columns_to_normalize:
+      - "congestion_index"
+      - "traffic_volume"
+      - "temperature"
+      - "precipitation"
+
+modeling:
+  # Data Splits
+  train_ratio: 0.60
+  validation_ratio: 0.20
+  test_ratio: 0.20
+  temporal_split: true
+  random_seed: 42
+  
+  # Models to Train
+  models:
+    - name: "LSTM"
+      type: "neural_network"
+      hyperparameters:
+        units: [64, 32]
+        dropout: 0.2
+        activation: "relu"
+        epochs: 100
+        batch_size: 32
+        optimizer: "adam"
+    
+    - name: "XGBoost"
+      type: "gradient_boosting"
+      hyperparameters:
+        n_estimators: 100
+        max_depth: 6
+        learning_rate: 0.1
+        subsample: 0.8
+        colsample_bytree: 0.8
+    
+    - name: "Random Forest"
+      type: "ensemble"
+      hyperparameters:
+        n_estimators: 100
+        max_depth: 15
+        min_samples_split: 5
+        min_samples_leaf: 2
+    
+    - name: "ARIMA"
+      type: "timeseries"
+      hyperparameters:
+        order: [1, 1, 1]  # (p, d, q)
+        seasonal: false
+  
+  # Model Evaluation
+  evaluation:
+    metrics:
+      - "mae"
+      - "rmse"
+      - "mape"
+      - "r2"
+    cross_validation: true
+    cv_folds: 5
+
+analysis:
+  # Clustering
+  clustering:
+    method: "kmeans"
+    n_clusters: 5
+    features:
+      - "latitude"
+      - "longitude"
+      - "avg_congestion"
+  
+  # Hotspot Detection
+  hotspot_detection:
+    method: "kernel_density"
+    bandwidth: "scott"
+    threshold_percentile: 75
+  
+  # Correlation Analysis
+  correlation:
+    method: "pearson"
+    significance_level: 0.05
+
+visualization:
+  style: "seaborn-v0_8-darkgrid"
+  figure:
+    dpi: 300
+    figsize: [12, 8]
+    save: true
+    format: "png"
+  
+  plots:
+    - "congestion_timeseries"
+    - "hotspot_map"
+    - "heatmap_hour_dayofweek"
+    - "correlation_matrix"
+    - "distribution_plots"
+    - "model_predictions"
+
+optimization:
+  # Genetic Algorithm Parameters (for route optimization)
+  genetic_algorithm:
+    population_size: 100
+    generations: 50
+    mutation_rate: 0.1
+    crossover_rate: 0.8
+  
+  # Route Optimization
+  route_optimization:
+    algorithm: "genetic"
+    objective: "minimize_travel_time"
+    constraints:
+      - "max_deviations: 0.2"
+      - "capacity_constraints: true"
+
+output:
+  # Report Generation
+  report:
+    format: "markdown"
+    include_figures: true
+    include_tables: true
+    include_code_snippets: false
+  
+  # Dashboard
+  dashboard:
+    platform: "streamlit"
+    refresh_rate_seconds: 300
+    enable_download: true
+  
+  # Artifacts
+  artifacts:
+    save_models: true
+    save_preprocessors: true
+    save_results: true
+    save_figures: true
+
+validation:
+  checklist:
+    - "data_quality_report"
+    - "feature_importance_analysis"
+    - "model_performance_validation"
+    - "result_reproducibility"
+    - "documentation_completeness"
+  
+  quality_gates:
+    data_completeness: 0.90
+    model_accuracy: 0.75
+    code_coverage: 0.80
+
+schedule:
+  phases:
+    - name: "Data Collection & Integration"
+      weeks: 2
+      start_week: 1
+    - name: "Exploratory Data Analysis"
+      weeks: 2
+      start_week: 3
+    - name: "Data Preprocessing"
+      weeks: 2
+      start_week: 4
+    - name: "Modeling & Validation"
+      weeks: 4
+      start_week: 6
+    - name: "Route Optimization"
+      weeks: 2
+      start_week: 8
+    - name: "Dashboard & Recommendations"
+      weeks: 2
+      start_week: 9
+    - name: "Documentation & Presentation"
+      weeks: 1
+      start_week: 11
+
+# Logging
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "./logs/capstone.log"
+  max_bytes: 10485760  # 10MB
+  backup_count: 5
+
+# Performance Settings
+performance:
+  num_workers: 4
+  use_gpu: true
+  memory_limit_gb: 8
