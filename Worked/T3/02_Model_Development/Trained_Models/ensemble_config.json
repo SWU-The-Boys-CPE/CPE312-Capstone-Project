@@ -1,0 +1,14 @@
+{
+  "weights": [
+    0.6086000019157166,
+    0.3913999980842835,
+    0.0
+  ],
+  "models": [
+    "xgboost_tuned.pkl",
+    "random_forest_tuned.pkl",
+    "gradient_boosting_tuned.pkl"
+  ],
+  "test_r2": 0.6750586520331003,
+  "test_rmse": 4.741329728484126
+}
