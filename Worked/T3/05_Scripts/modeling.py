@@ -1,8 +1,19 @@
 """
-Modeling Module for Bangkok Traffic Flow Optimization Project
+Modeling Module for Bangkok Traffic Congestion Index Prediction
 
-This module provides functions for training traffic prediction models
-including LSTM, XGBoost, ARIMA, and Random Forest.
+This module provides functions for training traffic congestion prediction models.
+
+Active Models (In Scope):
+    - Random Forest Regressor
+    - XGBoost Regressor
+    - Linear Regression (via sklearn)
+
+Deprecated Models (Out of Scope):
+    - LSTM (requires TensorFlow, complex for tabular data)
+    - ARIMA (pure time-series, not suitable for multivariate features)
+
+Note: The LSTM and ARIMA functions are retained for reference but are not
+used in the current project scope. Focus on Random Forest and XGBoost.
 
 Author: Data Science Team
 Date: November 2025
@@ -85,7 +96,7 @@ def temporal_train_test_split(
 
 
 # ============================================================================
-# LSTM MODEL
+# LSTM MODEL (DEPRECATED - Out of project scope)
 # ============================================================================
 
 def build_lstm_model(
@@ -219,7 +230,7 @@ def train_lstm_model(
 
 
 # ============================================================================
-# XGBOOST MODEL
+# XGBOOST MODEL (ACTIVE - Primary model)
 # ============================================================================
 
 def train_xgboost_model(
@@ -315,7 +326,7 @@ def train_xgboost_model(
 
 
 # ============================================================================
-# ARIMA MODEL
+# ARIMA MODEL (DEPRECATED - Out of project scope)
 # ============================================================================
 
 def train_arima_model(
@@ -380,7 +391,7 @@ def train_arima_model(
 
 
 # ============================================================================
-# RANDOM FOREST MODEL
+# RANDOM FOREST MODEL (ACTIVE - Primary model)
 # ============================================================================
 
 def train_random_forest_model(

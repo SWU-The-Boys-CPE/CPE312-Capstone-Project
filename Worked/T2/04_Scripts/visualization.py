@@ -1,8 +1,8 @@
 """
-Visualization Module for Traffic Flow Optimization Project
+Visualization Module for Bangkok Traffic Congestion Index Prediction
 
-Provides functions for creating professional visualizations of traffic data,
-accident patterns, weather impacts, and spatial analysis.
+Provides functions for creating professional visualizations of traffic
+congestion data, temporal patterns, and weather correlations.
 """
 
 import pandas as pd

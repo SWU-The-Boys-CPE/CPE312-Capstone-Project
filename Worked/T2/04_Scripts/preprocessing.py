@@ -1,8 +1,12 @@
 """
-Data Preprocessing Module for Traffic Flow Optimization Project
+Data Preprocessing Module for Bangkok Traffic Congestion Index Prediction
 
-This module provides functions for preprocessing traffic, accident, weather,
-and transit data specifically for the Bangkok Traffic Flow Optimization project.
+This module provides functions for preprocessing traffic and weather data
+for the Bangkok Traffic Congestion Index Prediction project.
+
+Datasets:
+- Bangkok Traffic Congestion Index (daily TCI, 2019-2025)
+- Bangkok Weather Data (temperature, humidity, precipitation)
 """
 
 import pandas as pd
@@ -93,6 +97,9 @@ def preprocess_traffic_data(
     return df
 
 
+# ============================================================================
+# WEATHER DATA PREPROCESSING
+# ============================================================================
 def preprocess_accident_data(
     df: pd.DataFrame,
     lat_col: str = 'latitude',

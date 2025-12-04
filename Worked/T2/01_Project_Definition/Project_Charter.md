@@ -1,9 +1,9 @@
-# Project Charter: Urban Traffic Flow Optimization and Public Transit Efficiency Analysis
+# Project Charter: Bangkok Traffic Congestion Index Prediction
 
 ## Document Information
-- **Document Version:** 1.0
+- **Document Version:** 2.0
 - **Date Created:** November 2025
-- **Last Updated:** [Date]
+- **Last Updated:** November 2025
 - **Status:** Active
 - **Owner:** Project Manager
 
@@ -12,7 +12,7 @@
 ## 1. Project Identification
 
 ### 1.1 Project Title
-**Urban Traffic Flow Optimization and Public Transit Efficiency Analysis in Bangkok Metropolitan Area**
+**Bangkok Traffic Congestion Index Prediction Using Time-Series Machine Learning**
 
 ### 1.2 Project Code
 `CPE312-CapstoneProject-Traffic`
@@ -27,81 +27,72 @@
 ## 2. Business Case & Strategic Alignment
 
 ### 2.1 Problem Statement
-Bangkok's traffic congestion costs approximately 97 million Thai Baht daily in wasted fuel and increases average travel time by 2 minutes 40 seconds per 10km during peak hours. The congestion index averages 38.88, with peaks reaching 162.13.
+Bangkok's traffic congestion costs approximately 97 million Thai Baht daily in wasted fuel. The congestion index averages 38.88, with peaks reaching 162.13. Accurate prediction of congestion levels can enable proactive travel planning and traffic management.
 
 ### 2.2 Project Vision
-To leverage big data analytics and machine learning to optimize urban traffic flow and public transit efficiency, reducing congestion by 15-25%, improving air quality, and supporting sustainable urban development.
+To develop machine learning models that accurately predict Bangkok's daily Traffic Congestion Index using historical congestion data and weather features.
 
 ### 2.3 Strategic Alignment
-- **SDG 11:** Sustainable Cities and Communities
-- **SDG 9:** Industry, Innovation and Infrastructure
-- **SDG 13:** Climate Action
-- **Thailand's 20-Year National Strategy:** Smart Cities & Digital Thailand
+- **SDG 11:** Sustainable Cities and Communities (data-driven urban planning)
+- **SDG 13:** Climate Action (reducing emissions through better traffic forecasting)
 
 ---
 
 ## 3. Project Goals & Objectives
 
 ### 3.1 Primary Goal
-Develop data-driven insights and actionable recommendations to reduce traffic congestion, optimize public transit, and improve transportation efficiency in Bangkok.
+Develop a machine learning model to predict Bangkok's daily Traffic Congestion Index using temporal and weather features.
 
 ### 3.2 Specific Objectives
 
 | # | Objective | Success Criteria | Target Completion |
 |---|-----------|-----------------|-------------------|
-| O1 | Integrate multi-source traffic data (flow, accidents, weather, transit) | Complete integrated database with 90%+ data quality | Week 2 |
-| O2 | Identify traffic congestion patterns and hotspots | Map 15-20 primary/secondary hotspots with temporal analysis | Week 4 |
-| O3 | Develop predictive congestion forecasting models | Achieve 75-85% accuracy for 15-60 minute forecasts | Week 7 |
-| O4 | Provide route optimization recommendations | Generate optimized routes reducing travel time by 10-15% | Week 8 |
-| O5 | Create interactive analytics dashboard | Functional dashboard with real-time/historical views | Week 10 |
-| O6 | Generate policy recommendations | Document 5-8 actionable recommendations with impact quantification | Week 11 |
-| O7 | Document methodology & findings | Complete final report meeting capstone requirements | Week 12 |
+| O1 | Collect and clean traffic & weather data | Complete cleaned dataset with <1% missing values | Week 2 |
+| O2 | Perform exploratory data analysis | Identify temporal patterns and weather correlations | Week 4 |
+| O3 | Engineer predictive features | Create temporal and weather-based features | Week 5 |
+| O4 | Train ML models (RF, XGBoost, Linear) | Successfully train all three models | Week 8 |
+| O5 | Evaluate and compare model performance | Select best model with RMSE < 15 | Week 10 |
+| O6 | Document methodology & findings | Complete final report and presentation | Week 12 |
 
 ---
 
 ## 4. Scope Definition
 
 ### 4.1 In Scope
-- ✅ Traffic congestion analysis in Bangkok Metropolitan Area
-- ✅ Historical data analysis (2019-2025)
-- ✅ Machine learning model development and validation
-- ✅ Spatial hotspot mapping and identification
-- ✅ Public transit efficiency analysis
-- ✅ Route optimization algorithms
-- ✅ Dashboard development for decision support
-- ✅ Policy recommendations documentation
+- ✅ Bangkok Traffic Congestion Index analysis (2019-2025)
+- ✅ Weather data integration (temperature, humidity, precipitation)
+- ✅ Temporal feature engineering (day of week, month, holidays)
+- ✅ ML model training (Random Forest, XGBoost, Linear Regression)
+- ✅ Model evaluation and comparison
+- ✅ Final documentation and presentation
 
 ### 4.2 Out of Scope
-- ❌ Real-time live traffic system implementation (only proof-of-concept)
-- ❌ Hardware deployment (sensors, cameras)
-- ❌ Direct implementation of recommendations (advisory only)
-- ❌ Multi-city comparative analysis beyond methodology demonstration
-- ❌ Legal/regulatory compliance analysis
-- ❌ Financial ROI analysis (only qualitative impact assessment)
+- ❌ Accident pattern analysis
+- ❌ Public transit optimization
+- ❌ Road network/infrastructure analysis
+- ❌ Real-time prediction system deployment
+- ❌ Multi-city analysis
+- ❌ Route optimization
 
 ---
 
 ## 5. High-Level Requirements
 
 ### 5.1 Data Requirements
-- Traffic flow data: Bangkok congestion index (daily, 2019-2025)
-- Accident data: US Accidents dataset (methodology transfer) + Bangkok accident records
-- Transit data: Public transit ridership patterns
-- Infrastructure data: OpenStreetMap road network
-- Environmental data: Weather, air quality, special events
+- Bangkok Traffic Congestion Index (daily, 2019-2025)
+- Bangkok Weather Data (temperature, humidity, precipitation)
 
 ### 5.2 Technical Requirements
-- **Languages:** Python 3.9+
-- **Libraries:** Pandas, NumPy, Scikit-learn, TensorFlow/PyTorch, Matplotlib, Seaborn
-- **Tools:** Jupyter Notebook, Tableau/Power BI, Git, SQL
-- **Infrastructure:** Local development environment, cloud storage option (optional)
+- **Language:** Python 3.9+
+- **Libraries:** Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn
+- **Tools:** Jupyter Notebook, Git
+- **Models:** Random Forest, XGBoost, Linear Regression
 
 ### 5.3 Analytical Requirements
-- Exploratory Data Analysis (EDA) with statistical testing
-- Predictive modeling (LSTM, XGBoost, ARIMA)
-- Geospatial analysis and hotspot detection
-- Time-series forecasting with validation
-- Optimization algorithms (genetic, greedy approaches)
+- Predictive modeling (Random Forest, XGBoost, Linear Regression)
+- Feature importance analysis
+- Time-series forecasting with cross-validation
+- Model comparison and selection
 
 ### 5.4 Deliverable Requirements
 - All code must be documented and version controlled
@@ -134,10 +125,10 @@ Develop data-driven insights and actionable recommendations to reduce traffic co
 ### 6.3 Impact Metrics
 | Metric | Target | Basis |
 |--------|--------|-------|
-| Congestion reduction potential | 15-25% | Estimated from optimization analysis |
-| Emission reduction | 5-8% | Based on traffic flow improvements |
-| Transit ridership improvement | 10-15% | From route optimization recommendations |
-| Implementation feasibility | High for 70%+ recommendations | Technical/practical assessment |
+| Prediction RMSE | < 15 | Based on TCI range (0-200) |
+| Prediction MAE | < 10 | Daily forecast error tolerance |
+| Prediction R² | > 0.70 | Strong predictive power |
+| Model Interpretability | High | Feature importance analysis |
 
 ---
 
@@ -152,8 +143,8 @@ Develop data-driven insights and actionable recommendations to reduce traffic co
 
 ### 7.2 Assumptions
 - Historical traffic data patterns are predictive of future trends
-- US accident methodology transfers to Bangkok context
-- Public transit data will be available from BMA/operators
+- Weather data correlates with traffic congestion patterns
+- Daily aggregated data is sufficient for prediction
 - Team members have required technical skills (or will upskill quickly)
 - Stakeholders will be available for feedback and validation
 - Data quality issues can be addressed through preprocessing
@@ -242,15 +233,15 @@ Develop data-driven insights and actionable recommendations to reduce traffic co
 - Feature engineering
 
 **Phase 3: Modeling & Analysis (Weeks 6-9)**
-- Model development and training
+- Model development and training (RF, XGBoost, Linear)
 - Hyperparameter optimization
 - Validation and performance testing
-- Route optimization analysis
+- Feature importance analysis
 
 **Phase 4: Synthesis & Documentation (Weeks 10-12)**
-- Dashboard development
+- Results visualization and analysis
 - Report writing and findings documentation
-- Recommendations formulation
+- Model interpretation and insights
 - Final presentation preparation
 
 ---
@@ -264,12 +255,11 @@ Develop data-driven insights and actionable recommendations to reduce traffic co
 - University computing resources
 
 ### 12.2 Tools & Software
-- **Data Processing:** Pandas, NumPy, Polars
-- **Modeling:** Scikit-learn, TensorFlow, PyTorch, XGBoost
-- **Visualization:** Matplotlib, Seaborn, Plotly
-- **Dashboarding:** Streamlit or Dash
+- **Data Processing:** Pandas, NumPy
+- **Modeling:** Scikit-learn, XGBoost
+- **Visualization:** Matplotlib, Seaborn
 - **Version Control:** Git/GitHub
-- **Documentation:** Markdown, Jupyter, Sphinx (optional)
+- **Documentation:** Markdown, Jupyter Notebooks
 
 ### 12.3 Data Access
 - **Free datasets:** Kaggle, CEIC, OpenStreetMap, NASA

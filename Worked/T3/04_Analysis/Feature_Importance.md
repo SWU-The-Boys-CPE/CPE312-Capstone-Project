@@ -1,128 +1,120 @@
 # Feature Importance Analysis
 
-**Project:** Bangkok Traffic Flow Optimization  
-**Date:** November 27, 2025  
-**Status:** Template - Results Pending
+**Project:** Bangkok Traffic Congestion Index Prediction  
+**Date:** November 28, 2025
 
 ---
 
 ## 1. Overview
 
-This document presents feature importance analysis from the trained models, identifying which features have the greatest impact on traffic congestion prediction.
+This document analyzes feature importance from the trained models to understand which factors most influence traffic congestion predictions.
 
 ---
 
-## 2. Feature Categories
+## 2. XGBoost Feature Importance
 
-### 2.1 Temporal Features
-
-| Feature | Description | Expected Importance |
-|---------|-------------|---------------------|
-| `hour_of_day` | Hour (0-23) | High |
-| `day_of_week` | Day (0-6, Mon-Sun) | High |
-| `is_weekend` | Weekend flag | Medium |
-| `is_holiday` | Thai holiday flag | High |
-| `month` | Month (1-12) | Medium |
-| `season` | Thai season | Medium |
-
-### 2.2 Lag Features
-
-| Feature | Description | Expected Importance |
-|---------|-------------|---------------------|
-| `congestion_lag_1` | Yesterday's congestion | Very High |
-| `congestion_lag_7` | Same day last week | High |
-| `congestion_rolling_7` | 7-day rolling mean | High |
-| `congestion_rolling_30` | 30-day rolling mean | Medium |
-
-### 2.3 Weather Features
-
-| Feature | Description | Expected Importance |
-|---------|-------------|---------------------|
-| `precipitation` | Daily precipitation (mm) | Medium |
-| `temperature` | Temperature (°C) | Low |
-| `weather_category` | Weather condition | Medium |
-| `visibility` | Visibility (km) | Low |
+| Rank | Feature | Importance | Category |
+|------|---------|------------|----------|
+| 1 | temp_avg | 0.4694 | Weather |
+| 2 | congestion_index_rolling_mean_7 | 0.1922 | Rolling Stats |
+| 3 | congestion_index_rolling_max_7 | 0.0386 | Rolling Stats |
+| 4 | congestion_index_rolling_mean_14 | 0.0306 | Rolling Stats |
+| 5 | congestion_index_rolling_std_7 | 0.0304 | Rolling Stats |
+| 6 | congestion_index_lag_1 | 0.0289 | Lag Features |
+| 7 | humidity | 0.0276 | Weather |
+| 8 | congestion_index_rolling_max_14 | 0.0251 | Rolling Stats |
+| 9 | rainfall | 0.0198 | Weather |
+| 10 | dayofweek | 0.0187 | Temporal |
 
 ---
 
-## 3. XGBoost Feature Importance
+## 3. Category Analysis
 
-### 3.1 Top 10 Features by Importance
+### 3.1 Weather Features (54.9%)
 
-| Rank | Feature | Importance Score | % Contribution |
-|------|---------|-----------------|----------------|
-| 1 | ⬜ | ⬜ | ⬜ |
-| 2 | ⬜ | ⬜ | ⬜ |
-| 3 | ⬜ | ⬜ | ⬜ |
-| 4 | ⬜ | ⬜ | ⬜ |
-| 5 | ⬜ | ⬜ | ⬜ |
-| 6 | ⬜ | ⬜ | ⬜ |
-| 7 | ⬜ | ⬜ | ⬜ |
-| 8 | ⬜ | ⬜ | ⬜ |
-| 9 | ⬜ | ⬜ | ⬜ |
-| 10 | ⬜ | ⬜ | ⬜ |
+- **temp_avg**: 46.9% - Dominant predictor
+- **humidity**: 2.8%
+- **rainfall**: 2.0%
+- **pressure, wind_speed**: <2% combined
 
-### 3.2 Feature Importance by Category
+**Insight:** Weather is the strongest predictor of traffic congestion.
 
-| Category | Total Importance % | Top Feature |
-|----------|-------------------|-------------|
-| Temporal | ⬜ | ⬜ |
-| Lag | ⬜ | ⬜ |
-| Weather | ⬜ | ⬜ |
-| Other | ⬜ | ⬜ |
+### 3.2 Rolling Statistics (32.7%)
 
----
+- **7-day rolling mean**: 19.2%
+- **7-day rolling max**: 3.9%
+- **14-day rolling mean**: 3.1%
+- Other rolling features: ~6.5%
 
-## 4. Random Forest Feature Importance
+**Insight:** Recent trends strongly predict future congestion.
 
-### 4.1 Top 10 Features
+### 3.3 Lag Features (6.2%)
 
-| Rank | Feature | Importance Score |
-|------|---------|-----------------|
-| 1 | ⬜ | ⬜ |
-| 2 | ⬜ | ⬜ |
-| 3 | ⬜ | ⬜ |
-| 4 | ⬜ | ⬜ |
-| 5 | ⬜ | ⬜ |
-| 6 | ⬜ | ⬜ |
-| 7 | ⬜ | ⬜ |
-| 8 | ⬜ | ⬜ |
-| 9 | ⬜ | ⬜ |
-| 10 | ⬜ | ⬜ |
+- **Lag 1 (yesterday)**: 2.9%
+- **Lag 7 (last week)**: 1.8%
+- **Lag 14 (two weeks ago)**: 1.5%
+
+**Insight:** Previous day's congestion is most predictive.
+
+### 3.4 Temporal Features (6.2%)
+
+- **dayofweek**: 1.9%
+- **month_sin/cos**: 1.5%
+- **is_weekend**: 1.2%
+- Other temporal: ~1.6%
+
+**Insight:** Weekly patterns influence traffic.
 
 ---
 
-## 5. SHAP Analysis (XGBoost)
+## 4. Key Findings
 
-### 5.1 SHAP Summary
+### 4.1 Temperature Dominance
 
-⬜ To be completed with SHAP plots
+Temperature alone accounts for nearly 50% of model importance:
+- Hot days may increase air conditioning use → more driving
+- Cold/comfortable days may encourage outdoor activities
+- Seasonal patterns affect commuting behavior
 
-### 5.2 Key SHAP Insights
+### 4.2 Rolling Statistics Value
 
-| Feature | Effect on Prediction |
-|---------|---------------------|
-| ⬜ | ⬜ |
+7-day rolling features capture:
+- Weekly commute patterns
+- Recent trend momentum
+- Short-term variability
 
----
+### 4.3 Minimal Temporal Impact
 
-## 6. Conclusions
-
-### 6.1 Most Important Features
-
-1. ⬜
-2. ⬜
-3. ⬜
-
-### 6.2 Least Important Features
-
-1. ⬜
-2. ⬜
-
-### 6.3 Recommendations
-
-- ⬜
+Day of week and month have low direct importance:
+- Already captured in rolling/lag features
+- Cyclical encoding reduces redundancy
 
 ---
 
-**Last Updated:** November 27, 2025
+## 5. Recommendations
+
+### 5.1 For Production
+
+1. **Prioritize weather data quality** - Most impactful feature
+2. **Maintain 7-day rolling calculations** - High predictive value
+3. **Daily updates critical** - Lag features need fresh data
+
+### 5.2 For Improvement
+
+1. Add weather forecast data for forward predictions
+2. Include special event calendar (holidays, festivals)
+3. Explore hour-of-day features for intraday predictions
+
+---
+
+## 6. Visualization
+
+Feature importance visualizations saved to:
+- `09_Results/Figures/feature_importance.png`
+- `09_Results/Figures/model_evaluation.png`
+
+---
+
+## 7. Conclusion
+
+Temperature and 7-day rolling statistics are the primary drivers of TCI prediction accuracy. Weather integration is critical for operational deployment.

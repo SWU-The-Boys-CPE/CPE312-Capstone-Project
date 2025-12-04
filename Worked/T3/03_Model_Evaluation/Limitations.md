@@ -1,7 +1,7 @@
 # Limitations
 
-**Project:** Bangkok Traffic Flow Optimization  
-**Date:** November 27, 2025
+**Project:** Bangkok Traffic Congestion Index Prediction  
+**Date:** November 28, 2025
 
 ---
 
@@ -11,49 +11,51 @@
 
 | Limitation | Impact | Mitigation |
 |------------|--------|------------|
-| Daily data only (not hourly) | Cannot predict 15-min spikes | Use hourly proxies; state as limitation |
+| Daily data only (not hourly) | Cannot predict rush-hour spikes | Future work: collect hourly data |
 | Historical only (no real-time) | Cannot validate live predictions | Use recent holdout; recommend real-time integration |
+| Limited samples (351 days) | May limit complex model performance | Focus on feature engineering |
 
 ### 1.2 Geographic Coverage
 
 | Limitation | Impact | Mitigation |
 |------------|--------|------------|
 | Bangkok-specific data | Limited generalizability | Focus on methodology; document context |
-| US accidents for methodology | Transferability concerns | Use as methodology template, not direct predictions |
+| City-wide aggregation | No spatial resolution | Future work: zone-level data |
 
 ### 1.3 Data Completeness
 
 | Limitation | Impact | Mitigation |
 |------------|--------|------------|
 | Missing transit ridership | Incomplete multimodal analysis | Use proxy features; document as limitation |
-| Limited weather granularity | May miss micro-weather events | Aggregate to daily; use categorical |
-| Gaps during COVID (2020) | Unusual traffic patterns | Consider excluding or flagging |
+| Limited weather granularity | May miss micro-weather events | Aggregate to daily averages |
+| No special events data | Cannot predict event-driven spikes | Future work: add event calendar |
 
 ---
 
 ## 2. Model Limitations
 
-### 2.1 LSTM
+### 2.1 Linear Regression (Best Model)
 
 | Limitation | Impact | Mitigation |
 |------------|--------|------------|
-| Black-box nature | Difficult to explain predictions | Use SHAP values; attention mechanisms |
-| Data hungry | May underperform with 1,682 samples | Use transfer learning; ensemble |
-| Long training time | Limited hyperparameter exploration | Use early stopping; cloud resources |
+| Assumes linear relationships | May miss non-linear patterns | Feature engineering captures non-linearity |
+| Sensitive to outliers | Extreme values affect predictions | Data cleaning; robust scaling |
+| No uncertainty quantification | Point predictions only | Future: confidence intervals |
 
-### 2.2 XGBoost
-
-| Limitation | Impact | Mitigation |
-|------------|--------|------------|
-| May overfit | Poor generalization | Regularization; cross-validation |
-| Sequential patterns | Doesn't capture time dependencies | Add lag features; compare with LSTM |
-
-### 2.3 ARIMA
+### 2.2 XGBoost (Second Best)
 
 | Limitation | Impact | Mitigation |
 |------------|--------|------------|
-| Stationarity assumption | May miss non-linear patterns | Differencing; combine with ML |
-| Univariate focus | Cannot use exogenous features | Use SARIMAX; document limitation |
+| Slight overfitting observed | 8.4% train-test gap | Regularization applied |
+| Less interpretable than Linear | Harder to explain to stakeholders | SHAP values for interpretation |
+
+### 2.3 Random Forest (Best R²)
+
+| Limitation | Impact | Mitigation |
+|------------|--------|------------|
+| Less interpretable | Harder to explain individual predictions | Use SHAP values |
+| Larger model size | More memory for deployment | Acceptable trade-off for accuracy |
+| Slower inference | Slightly more computation | Still fast enough for daily predictions |
 
 ---
 
@@ -63,53 +65,52 @@
 
 | Limitation | Impact | Mitigation |
 |------------|--------|------------|
-| Cannot establish causation | Policy recommendations are suggestive | Clear language; focus on associations |
-| Confounding variables | Relationships may be spurious | Consider domain knowledge; multiple analyses |
+| Cannot establish causation | Temperature correlation ≠ causation | Clear language; focus on associations |
+| Confounding variables | Other factors may influence | Document uncertainty |
 
-### 3.2 External Factors
-
-| Limitation | Impact | Mitigation |
-|------------|--------|------------|
-| COVID-19 impact | Unusual 2020-2021 patterns | Flag period; consider exclusion |
-| Special events (protests) | Extreme outliers | Include event features; document |
-| Infrastructure changes | May affect predictions | Include infrastructure features |
-
----
-
-## 4. Generalizability Limitations
+### 3.2 Scope Limitations
 
 | Limitation | Impact | Mitigation |
 |------------|--------|------------|
-| Bangkok-specific | May not apply to other cities | Document context; focus on methodology |
-| Time period (2019-2025) | May not reflect future | Recommend regular retraining |
-| Thai holidays | Culture-specific patterns | Document holiday effects |
+| No rush-hour breakdown | Cannot optimize specific hours | Future work with hourly data |
+| No route-level data | Cannot identify bottlenecks | City-wide TCI only |
 
 ---
 
-## 5. Recommendations
+## 4. Production Deployment Limitations
 
-1. **Acquire real-time data** for production deployment
-2. **Implement regular model retraining** (monthly/quarterly)
-3. **Conduct A/B testing** before full deployment
-4. **Monitor model drift** over time
-5. **Document uncertainty** in predictions
+| Limitation | Impact | Mitigation |
+|------------|--------|------------|
+| Requires weather forecast | Prediction depends on weather API | Integrate weather forecast service |
+| Daily update cycle | Not real-time | Acceptable for daily planning |
+| Model drift risk | Performance may degrade | Recommend monthly retraining |
+
+---
+
+## 5. Recommendations for Future Work
+
+1. **Collect hourly data** for rush-hour predictions
+2. **Add zone-level** spatial resolution
+3. **Include special events** (holidays, festivals, protests)
+4. **Integrate real-time** weather API
+5. **Implement model monitoring** for drift detection
 
 ---
 
 ## 6. Honest Assessment
 
 **What this project CAN do:**
-- Predict daily congestion trends with reasonable accuracy
-- Identify important features affecting congestion
-- Provide methodology template for Bangkok authorities
-- Support data-driven decision making
+- Predict daily TCI with R² = 0.9645 ✅
+- All three models exceed R² > 0.70 target ✅
+- Provide interpretable predictions via Linear Regression ✅
+- Support data-driven traffic planning ✅
 
 **What this project CANNOT do:**
-- Guarantee real-time predictions without live data
-- Establish causal relationships
-- Replace domain expert judgment
-- Account for unprecedented events
+- Predict rush-hour spikes (hourly data needed)
+- Identify specific road bottlenecks (no spatial data)
+- Establish causal relationships (correlation only)
+- Account for unprecedented events (protests, disasters)
 
 ---
 
-**Last Updated:** November 27, 2025
+**Last Updated:** November 28, 2025
