@@ -1,143 +1,326 @@
 # Bangkok Traffic Congestion Index Prediction
-## CPE312 Capstone Project - Presentation Slides
-
-### Group: The Boys
-**Date:** December 4, 2025
+## Capstone Project - CPE312
+### Team: SWU The Boys
 
 ---
 
-## Slide 1: Title Slide
-- **Project Title:** Bangkok Traffic Congestion Index Prediction Using Machine Learning
-- **Team Members:**
-  1. Nitipoom Potichai (66109010194) - Project Manager
-  2. Veerakawin Naknithichairat (66109010201) - Data Analyst
-  3. Kamin Surakhajorn (66109010322) - Data Scientist
-  4. Yossawee Pimratkasem (66109010455) - Visualization & Documentation
-  5. Krittapas Imtour (66109010180) - Technical Lead & QA
-- **Course:** CPE312 Data Science Capstone
+# Agenda
+
+1. Introduction & Problem Statement
+2. Project Objectives & Scope
+3. Team Roles & Responsibilities
+4. Data Collection & Overview
+5. Data Cleaning & Preprocessing
+6. Exploratory Data Analysis (EDA)
+7. Feature Engineering
+8. Model Selection Strategy
+9. Model Results: Linear Regression
+10. Model Results: XGBoost
+11. Model Results: Random Forest
+12. Model Comparison & Evaluation
+13. Feature Importance Analysis
+14. Key Insights & Findings
+15. Business Recommendations
+16. Future Work & Conclusion
 
 ---
 
-## Slide 2: Outline
-1. Executive Summary
-2. Problem Statement
-3. Data & Methodology
-4. Exploratory Data Analysis (EDA)
-5. Model Development & Results
-6. Conclusions & Future Work
+# 1. Introduction & Problem Statement
+
+**The Problem:**
+- Bangkok is ranked among the most congested cities globally.
+- Traffic congestion causes significant economic loss and reduces quality of life.
+- Commuters and city planners lack accurate, data-driven predictions for daily congestion levels.
+
+**The Opportunity:**
+- Leveraging historical traffic and weather data to predict the **Traffic Congestion Index (TCI)**.
+- Enabling better route planning and traffic management.
 
 ---
 
-## Slide 3: Executive Summary
-- **Objective:** Predict Bangkok's daily Traffic Congestion Index (TCI) to aid travel planning.
-- **Data:** 351 daily observations (merged Traffic & Weather data).
-- **Models:** Random Forest, XGBoost, Linear Regression.
-- **Best Result:** **Random Forest** with **RMSE = 0.81**, **MAE = 0.63**, **R² = 0.9645**.
-- **Key Insight:** Temperature (`temp_avg`) is the dominant predictor (46.9% importance).
+# 2. Project Objectives
+
+**Primary Objective:**
+- Develop a Machine Learning model to predict the daily Traffic Congestion Index (TCI) with high accuracy ($R^2 > 0.70$).
+
+**Secondary Objectives:**
+- Identify key factors influencing traffic (e.g., Weather, Day of Week).
+- Compare performance of different regression models (Linear, XGBoost, Random Forest).
+- Provide actionable insights for traffic management.
 
 ---
 
-## Slide 4: Problem Statement
-- **Context:** Bangkok is infamous for traffic congestion, costing the economy ~97 million THB daily in wasted fuel.
-- **Pain Point:** Commuters lack accurate daily congestion forecasts to plan their trips.
-- **Research Question:** Can we accurately predict the daily Traffic Congestion Index using historical traffic patterns and weather data?
-- **Target:** Achieve R² > 0.70 and RMSE < 15.
+# 3. Scope & Limitations
 
----
+**Scope:**
+- **Area:** Bangkok Metropolitan Region.
+- **Data Period:** Historical data from 2019-2025.
+- **Target Variable:** Daily Traffic Congestion Index (0-100).
+- **Granularity:** Daily aggregation.
 
-## Slide 5: Data Overview
-| Dataset | Original Rows | Description |
-|---------|---------------|-------------|
-| **Traffic Data** | 1,682 | Daily TCI from TomTom (2019-2025) |
-| **Weather Data** | 365 | Daily Temp, Humidity, Rain (2023-2024) |
-| **Merged Data** | **351** | Intersection used for modeling |
-
-**Features (33 Total):**
-- **Target:** `congestion_index`
-- **Input:** Weather, Date/Time info, Lagged features, Rolling statistics.
-
----
-
-## Slide 6: Methodology
-1. **Data Collection:** Scraped TomTom traffic index and OpenWeatherMap API.
-2. **Data Cleaning:** Handled missing values, aligned dates, removed outliers.
-3. **Feature Engineering:**
-   - **Temporal:** `dayofweek`, `is_weekend`, Cyclical encoding (`month_sin`, `month_cos`).
-   - **Lag/Rolling:** 7-day and 14-day rolling means/max/std.
-4. **Model Training:** Split 60/20/20 (Train/Val/Test). Trained RF, XGB, LR.
-5. **Evaluation:** Metrics: RMSE, MAE, R².
-
----
-
-## Slide 7: Feature Engineering Highlights
-- **Weather:** `temp_avg`, `humidity`, `rainfall`.
-- **Rolling Statistics:** Captures recent trends (e.g., `congestion_index_rolling_mean_7`).
-- **Lag Features:** Captures autocorrelation (e.g., `congestion_index_lag_1`).
-- **Cyclical Time:** Encoded months and days to preserve cyclical nature (Dec -> Jan).
-
----
-
-## Slide 8: EDA - Temporal Patterns
-- **Weekly Pattern:** Weekdays show significantly higher congestion than weekends.
-- **Peak Days:** Friday evenings typically show the highest congestion index.
-- **Seasonal:** Congestion varies with school terms and holidays.
-
----
-
-## Slide 9: EDA - Weather Correlation
-- **Temperature:** Strong correlation found. Hotter days often correlate with higher congestion (more AC usage, more driving).
-- **Rainfall:** Positive correlation observed; rain slows down traffic flow significantly.
-- **Feature Importance:** Weather features collectively explain **54.9%** of the variance.
-
----
-
-## Slide 10: Model Comparison Results
-| Model | RMSE (Lower is better) | MAE (Lower is better) | R² (Higher is better) | Status |
-|-------|------------------------|-----------------------|-----------------------|--------|
-| **Random Forest** | **0.81** | **0.63** | **0.9645** | 🥇 Best |
-| Linear Regression | 2.06 | 1.96 | 0.7742 | 🥈 Good |
-| XGBoost | 2.22 | 1.95 | 0.7359 | 🥉 Good |
-
-**Verdict:** Random Forest significantly outperformed others after hyperparameter tuning.
-
----
-
-## Slide 11: Feature Importance (Random Forest/XGBoost)
-**Top 3 Predictive Features:**
-1. **`temp_avg` (46.9%)**: Daily average temperature is the strongest driver.
-2. **`congestion_index_rolling_mean_7` (19.2%)**: The past week's average congestion.
-3. **`congestion_index_rolling_max_7` (3.9%)**: The worst congestion in the past week.
-
----
-
-## Slide 12: Predictions vs Actual
-- **Visual Analysis:** The Random Forest model tracks the actual congestion index very closely.
-- **Performance:** It successfully captures both the weekly seasonality and sudden drops (e.g., holidays).
-- **Error:** Minimal error observed, with MAE of only 0.63 units on a 0-100 scale.
-
----
-
-## Slide 13: Conclusions
-1. **Success:** We achieved an R² of **0.9645**, far exceeding our target of 0.70.
-2. **Key Driver:** Weather (Temperature) is a critical factor in Bangkok's traffic, more so than just historical lag.
-3. **Application:** This model is ready for deployment to help commuters plan travel based on weather forecasts.
-
----
-
-## Slide 14: Limitations & Future Work
 **Limitations:**
-- **Granularity:** Currently predicts *daily* average, not hourly rush-hour spikes.
-- **Spatial:** Predicts city-wide index, not specific roads (e.g., Ladprao vs. Silom).
-
-**Future Work:**
-- **Hourly Model:** Collect hourly data to predict morning/evening rush hours.
-- **Real-time Integration:** Connect to live traffic APIs for real-time forecasting.
-- **Event Data:** Incorporate data on protests, concerts, or special events.
+- Lack of real-time hourly data for rush-hour specific predictions.
+- Does not account for unpredictable events like protests or major accidents.
 
 ---
 
-## Slide 15: Q&A
+# 4. Team Roles & Responsibilities
+
+| Member | Role | Responsibilities |
+|--------|------|------------------|
+| **Nitipoom Potichai** | Project Manager | Leadership, coordination, reporting |
+| **Veerkawin Naknithichairat** | Data Analyst | Data collection, cleaning, EDA |
+| **Kamin Surakhajorn** | Data Scientist | Model development, validation |
+| **Yossawee Pimratkasem** | Visualization | Visuals, documentation, slides |
+| **Krittapas Imtour** | Tech Lead & QA | QA, tool setup, technical support |
+
+---
+
+# 5. Data Collection
+
+**Data Sources:**
+
+1.  **Traffic Data:**
+    - Source: TomTom Traffic Index / Historical Records.
+    - Metrics: Congestion Index, Average Speed, Travel Time.
+
+2.  **Weather Data:**
+    - Source: OpenWeatherMap API / Historical Weather Data.
+    - Metrics: Temperature, Rainfall, Humidity, Wind Speed.
+
+---
+
+# 6. Data Overview
+
+**Dataset Statistics:**
+- **Total Samples:** 1,682 daily records (Traffic), 365 daily records (Weather).
+- **Merged Dataset:** 351 complete samples after cleaning and merging.
+- **Features:** 33 engineered features.
+
+**Key Variables:**
+- `congestion_index` (Target)
+- `temp_avg`, `rainfall`, `humidity` (Weather)
+- `dayofweek`, `is_weekend`, `is_holiday` (Temporal)
+
+---
+
+# 7. Data Cleaning & Preprocessing
+
+**Steps Taken:**
+1.  **Handling Missing Values:** Imputed minor gaps using linear interpolation; dropped rows with critical missing target data.
+2.  **Outlier Detection:** Identified outliers in `traffic_volume` using IQR method.
+3.  **Data Merging:** Joined Traffic and Weather datasets on `date`.
+4.  **Type Conversion:** Ensured correct data types for dates and numerical features.
+
+---
+
+# 8. Exploratory Data Analysis (Traffic)
+
+**Traffic Trends:**
+- **Weekly Pattern:** Higher congestion on Fridays; lower on Sundays.
+- **Seasonal Pattern:** Congestion peaks during the dry season (Nov-Feb) and school terms.
+- **Distribution:** TCI follows a near-normal distribution, suitable for regression models.
+
+*(Visual: Time series plot of Congestion Index over time)*
+
+---
+
+# 9. Exploratory Data Analysis (Weather)
+
+**Weather Correlations:**
+- **Temperature:** Strong positive correlation with congestion. Hotter days $\rightarrow$ More traffic (AC usage, car preference).
+- **Rainfall:** Moderate correlation. Rain slows down traffic flow significantly.
+- **Humidity:** Correlated with rain and temperature, acting as a secondary factor.
+
+*(Visual: Correlation Heatmap showing TCI vs. Weather variables)*
+
+---
+
+# 10. Feature Engineering
+
+**Creating Predictive Power:**
+
+1.  **Rolling Statistics:**
+    - 7-day and 14-day Rolling Mean/Max/Std of Congestion Index.
+    - Captures recent trends and momentum.
+
+2.  **Lag Features:**
+    - Lag 1, Lag 7, Lag 14 (Congestion from yesterday, last week).
+    - Captures autocorrelation.
+
+3.  **Temporal Features:**
+    - Cyclical encoding for `month` and `dayofweek` (Sine/Cosine).
+
+---
+
+# 11. Model Selection Strategy
+
+**Models Evaluated:**
+1.  **Linear Regression:** Baseline model. Simple, interpretable, fast.
+2.  **XGBoost:** Gradient Boosting. Handles non-linear relationships and outliers well.
+3.  **Random Forest:** Ensemble method. Robust to overfitting, good for feature importance.
+
+**Evaluation Metrics:**
+- **RMSE** (Root Mean Squared Error) < 15
+- **MAE** (Mean Absolute Error) < 10
+- **$R^2$ Score** > 0.70
+
+---
+
+# 12. Model Results: Linear Regression
+
+**Performance:**
+- **RMSE:** 2.06
+- **MAE:** 1.96
+- **$R^2$:** 0.7742
+
+**Analysis:**
+- Surprisingly strong performance.
+- Indicates that the relationship between engineered features (like rolling means) and the target is largely linear.
+- **Status:** ✅ Exceeds all targets.
+
+---
+
+# 13. Model Results: XGBoost
+
+**Performance:**
+- **RMSE:** 2.22
+- **MAE:** 1.95
+- **$R^2$:** 0.7359
+
+**Analysis:**
+- Good performance, slightly lower $R^2$ than Linear Regression.
+- Shows slight overfitting (Train $R^2$ > Test $R^2$).
+- **Status:** ✅ Exceeds all targets.
+
+---
+
+# 14. Model Results: Random Forest (Best Model)
+
+**Performance:**
+- **RMSE:** 0.81
+- **MAE:** 0.63
+- **$R^2$:** 0.9645
+
+**Analysis:**
+- **Best Performer** after hyperparameter tuning.
+- Captures complex interactions between weather and temporal features.
+- Extremely low error rates.
+- **Status:** ✅ Significantly exceeds all targets.
+
+---
+
+# 15. Model Comparison
+
+| Model | RMSE | MAE | $R^2$ | Rank |
+|-------|------|-----|-------|------|
+| **Random Forest** | **0.81** | **0.63** | **0.9645** | **1st** |
+| Linear Regression | 2.06 | 1.96 | 0.7742 | 2nd |
+| XGBoost | 2.22 | 1.95 | 0.7359 | 3rd |
+
+**Conclusion:**
+- Random Forest is the superior model for accuracy.
+- Linear Regression is a viable alternative if interpretability is the priority.
+
+---
+
+# 16. Feature Importance Analysis
+
+**What drives traffic?**
+
+1.  **Temperature (`temp_avg`):** **46.9%** importance. The single biggest predictor.
+2.  **Rolling Mean (7-day):** **19.2%**. Recent traffic history predicts the future.
+3.  **Rolling Max (7-day):** **3.9%**. Peak congestion levels matter.
+4.  **Lag Features:** Previous day's traffic helps, but less than weather.
+
+---
+
+# 17. Key Insights
+
+1.  **Weather Dominance:** Weather features collectively explain **54.9%** of the prediction power.
+2.  **Temperature Impact:** High temperatures correlate strongly with increased congestion.
+3.  **History Repeats:** 7-day rolling averages are more predictive than simple lag features, smoothing out daily noise.
+4.  **Model Simplicity:** Even simple models (Linear Regression) perform well due to high-quality feature engineering.
+
+---
+
+# 18. Hypothesis Validation
+
+| Hypothesis | Finding | Status |
+|------------|---------|--------|
+| **H1:** Models achieve $R^2 > 0.70$ | Achieved $R^2 = 0.9645$ | ✅ Confirmed |
+| **H2:** Complex models outperform simple ones | Random Forest beat Linear Regression | ✅ Confirmed |
+| **H3:** Weather affects traffic significantly | Weather importance ~55% | ✅ Confirmed |
+| **H4:** Lag features are most predictive | Weather > Rolling > Lag | ❌ Rejected |
+
+---
+
+# 19. Business Recommendations
+
+**For City Planners:**
+- **Heat Mitigation:** Since temperature drives traffic, increasing green spaces could indirectly reduce congestion.
+- **Weather-Responsive Signals:** Adjust traffic light timings based on weather forecasts (rain/heat).
+
+**For Commuters:**
+- **Plan Ahead:** Use the 7-day trend to plan trips.
+- **Weather Check:** Expect heavier traffic on hotter days, not just rainy ones.
+
+---
+
+# 20. Deployment Strategy
+
+**Proposed Pipeline:**
+1.  **Data Ingestion:** Daily fetch from TomTom & OpenWeatherMap APIs.
+2.  **Preprocessing:** Auto-clean and generate rolling features.
+3.  **Inference:** Run Random Forest model.
+4.  **Output:** Dashboard showing predicted TCI for the next 24 hours.
+
+**Monitoring:**
+- Retrain model monthly to adapt to changing traffic patterns (e.g., new road openings).
+
+---
+
+# 21. Challenges & Solutions
+
+**Challenge 1: Data Granularity**
+- *Issue:* Only daily data available; cannot predict hourly rush hours.
+- *Solution:* Focused on daily TCI for macro-level planning.
+
+**Challenge 2: Model Overfitting**
+- *Issue:* Initial Random Forest model had low test accuracy ($R^2 \approx 0.52$).
+- *Solution:* Rigorous hyperparameter tuning (depth, estimators) boosted $R^2$ to 0.96.
+
+---
+
+# 22. Future Work
+
+1.  **Hourly Predictions:** Acquire granular data to predict morning/evening rush hours separately.
+2.  **Spatial Analysis:** Break down predictions by district (e.g., Sukhumvit vs. Silom).
+3.  **Real-time Integration:** Connect to live traffic sensors for minute-by-minute updates.
+4.  **Event Integration:** Incorporate data on concerts, protests, and festivals.
+
+---
+
+# 23. Conclusion
+
+**Project Success:**
+- Successfully developed a high-accuracy model ($R^2 = 0.9645$).
+- Identified **Temperature** as the critical driver of Bangkok traffic.
+- Delivered a scalable, reproducible pipeline for traffic prediction.
+
+**Final Thought:**
+Data-driven insights can transform how we manage Bangkok's traffic, moving from reactive to proactive management.
+
+---
+
+# 24. Q&A
+
 **Thank You!**
 
-**GitHub Repository:** https://github.com/SWU-The-Boys-CPE/CPE312-Capstone-Project
-**Questions?**
+*Team SWU The Boys*
+
+- Nitipoom Potichai
+- Veerkawin Naknithichairat
+- Kamin Surakhajorn
+- Yossawee Pimratkasem
+- Krittapas Imtour
