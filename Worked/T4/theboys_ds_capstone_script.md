@@ -42,7 +42,7 @@
 **Slides: 7-11**
 
 **(Slide 7: Data Collection)**
-**Veerkawin:** ขอบคุณครับ สำหรับข้อมูลที่เราใช้ (Data Collection) มาจาก 2 แหล่งหลักครับ
+**Weerkawin:** ขอบคุณครับ สำหรับข้อมูลที่เราใช้ (Data Collection) มาจาก 2 แหล่งหลักครับ
 1. **Traffic Data:** จาก TomTom Traffic Index เก็บค่าความหนาแน่นจราจร
 2. **Weather Data:** จาก OpenWeatherMap API เก็บค่าอุณหภูมิ ปริมาณฝน และความชื้นครับ
 
