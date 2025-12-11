@@ -5,9 +5,9 @@ Request:
 I don't every things to just work, its was to work good too.
 
 Update:
-/Volumes/T9/Documents/01-computer-engineer/Y3-TR1/CPE312/Capstone Project/Worked/T3
+Worked/T3
 
-I want you to fill this "/Volumes/T9/Documents/01-computer-engineer/Y3-TR1/CPE312/Capstone Project/Worked/T3/T3Modeling_Analysis_Evaluation_Checklist_Template.md" file with actual content pls.
+I want you to fill this "Worked/T3/T3Modeling_Analysis_Evaluation_Checklist_Template.md" file with actual content pls.
 
 to be clear, don't change the original template topic.
 

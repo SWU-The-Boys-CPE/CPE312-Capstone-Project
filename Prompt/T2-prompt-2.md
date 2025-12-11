@@ -1,10 +1,10 @@
 Read:
-- /Volumes/T9/Documents/CPE/Y3-TR1/CPE312/Capstone Project/Template/20Data collection, cleaning, and initial EDA.md
-- /Volumes/T9/Documents/CPE/Y3-TR1/CPE312/Capstone Project/Template/21Checklist.md
-- /Volumes/T9/Documents/CPE/Y3-TR1/CPE312/Capstone Project/Worked/01_Project_Definition/10Traffic-Transport-Capstone.md
+- Template/T2Data collection, cleaning, and initial EDA.md
+- Template/T2Checklist.md
+- Worked/T1/10Traffic-Transport-Capstone.md
 
 Update:
-- (Every things inside)/Volumes/T9/Documents/CPE/Y3-TR1/CPE312/Capstone Project/Worked
+- (Every things inside) Worked
 
 Request:
 - Base on 20, 21 md file template + actual content in 10Traffic-Transport-Capstone.md

@@ -4,7 +4,7 @@ Read:
 - /Volumes/T9/Documents/CPE/Y3-TR1/CPE312/Capstone Project/Worked/01_Project_Definition/10Traffic-Transport-Capstone.md
 
 Update:
-- (Every things inside)/Volumes/T9/Documents/CPE/Y3-TR1/CPE312/Capstone Project/Worked
+- (Every things inside) Worked
 
 Request:
 - Base on 20, 21 md file template + actual content in 10Traffic-Transport-Capstone.md
