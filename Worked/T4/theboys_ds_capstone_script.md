@@ -38,7 +38,7 @@
 ---
 
 ### **Part 2: Data Management & EDA**
-**Speaker: Veerkawin Naknithichairat (Data Analyst)**
+**Speaker: Weerkawin Naknithichairat (Data Analyst)**
 **Slides: 7-11**
 
 **(Slide 7: Data Collection)**
