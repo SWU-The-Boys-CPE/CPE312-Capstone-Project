@@ -13,6 +13,7 @@ This directory contains the project definition documents that establish the scop
 The comprehensive project charter containing:
 
 #### Project Identification
+
 - **Project Code:** CPE312-CapstoneProject-Traffic
 - **Duration:** 12 weeks (November 2025 - February 2026)
 - **Team:** SWU-The-Boys-CPE (5 members)
@@ -30,12 +31,14 @@ The comprehensive project charter containing:
 #### Project Scope
 
 **In Scope:**
+
 - Bangkok Traffic Congestion Index prediction (2019-2025)
 - Weather data integration (temperature, humidity, precipitation)
 - Temporal feature engineering (day of week, month, holidays)
 - ML models: Random Forest, XGBoost, Linear Regression
 
 **Out of Scope:**
+
 - Accident pattern analysis
 - Public transit optimization
 - Real-time deployment
@@ -68,4 +71,4 @@ The comprehensive project charter containing:
 
 ---
 
-*Last Updated: November 2025*
+> *Last Updated: November 2025*

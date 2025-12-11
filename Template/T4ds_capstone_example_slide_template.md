@@ -1,12 +1,14 @@
 
-# Srisupang Thewsuwan
-## November 2024
+# Capstone_Example_Slide
+
+ ( **From Srisupang Thewsuwan**)
+ Date November 2024
 
 1
 
 ---
 
-# Outline
+## Outline
 
 - Executive Summary
 - Introduction
@@ -19,7 +21,7 @@
 
 ---
 
-# Executive Summary
+## Executive Summary
 
 - อธิบายภาพรวมของวิธีการทั้งหมด และผลลัพธ์จากการศึกษา
 
@@ -27,7 +29,7 @@
 
 ---
 
-# Introduction
+## Introduction
 
 - The task involved gathering data on SpaceX to create dashboards and predict whether the first stage of the Falcon 9 will be reused, ultimately determining launch costs.
 
@@ -35,13 +37,13 @@
 
 ---
 
-# Section 1: Methodology
+## Section 1: Methodology
 
 5
 
 ---
 
-# Methodology Overview
+## Methodology Overview
 
 - Data collection methodology:
   - SpaceX launch data using an API, specifically the SpaceX REST API, to predict rocket landing attempts
@@ -55,7 +57,7 @@
 
 ---
 
-# Data Collection
+## Data Collection
 
 - The API provides data on past launches, including rocket details, payloads, and landing outcomes, accessible through the endpoint `api.spacexdata.com/v4/launches/past`.
 - Data is retrieved using a GET request with the requests library, and the response is in JSON format, which can be converted into a dataframe using the `json_normalize` function.
@@ -64,7 +66,7 @@
 
 ---
 
-# Data Collection – SpaceX API
+## Data Collection – SpaceX API
 
 - Place your flowchart of SpaceX API calls here
 - Present your data collection with SpaceX REST calls using key phrases and flowcharts
@@ -74,7 +76,7 @@
 
 ---
 
-# Data Wrangling
+## Data Wrangling
 
 - Describe how data were processed
 - You need to present your data wrangling process using key phrases and flowcharts
@@ -84,7 +86,7 @@
 
 ---
 
-# EDA with Data Visualization
+## EDA with Data Visualization
 
 - Summarize what charts were plotted and why you used those charts
 - Add the GitHub URL of your completed EDA with data visualization notebook, as an external reference and peer-review purpose
@@ -93,7 +95,7 @@
 
 ---
 
-# Predictive Analysis (Classification)
+## Predictive Analysis (Classification)
 
 - Summarize how you built, evaluated, improved, and found the best performing classification model
 - You need present your model development process using key phrases and flowchart
@@ -103,7 +105,7 @@
 
 ---
 
-# Section 2: Results
+## Section 2: Results
 
 - Exploratory data analysis results
 - Interactive analytics demo in screenshots
@@ -113,13 +115,13 @@
 
 ---
 
-# Insights drawn from EDA
+## Insights drawn from EDA
 
 13
 
 ---
 
-# Payload vs. Orbit Type
+## Payload vs. Orbit Type
 
 - Show a scatter point of payload vs. orbit type
 - Show the screenshot of the scatter plot with explanations
@@ -128,7 +130,7 @@
 
 ---
 
-# Launch Success Yearly Trend
+## Launch Success Yearly Trend
 
 - Show a line chart of yearly average success rate
 - Show the screenshot of the scatter plot with explanations
@@ -137,7 +139,7 @@
 
 ---
 
-# All Launch Site Names
+## All Launch Site Names
 
 - Find the names of the unique launch sites
 - Present your query result with a short explanation here
@@ -146,7 +148,7 @@
 
 ---
 
-# Total Payload Mass
+## Total Payload Mass
 
 - Calculate the total payload carried by boosters from NASA
 - Present your query result with a short explanation here
@@ -155,7 +157,7 @@
 
 ---
 
-# First Successful Ground Landing Date
+## First Successful Ground Landing Date
 
 - Find the dates of the first successful landing outcome on ground pad
 - Present your query result with a short explanation here
@@ -164,13 +166,13 @@
 
 ---
 
-# Section 3: Predictive Analysis Results
+## Section 3: Predictive Analysis Results
 
 19
 
 ---
 
-# Classification Accuracy
+## Classification Accuracy
 
 - Visualize the built model accuracy for all built classification models, in a bar chart
 - Find which model has the highest classification accuracy
@@ -179,7 +181,7 @@
 
 ---
 
-# Confusion Matrix
+## Confusion Matrix
 
 - Show the confusion matrix of the best performing model with an explanation
 
@@ -187,7 +189,7 @@
 
 ---
 
-# Conclusions
+## Conclusions
 
 - Point 1
 - Point 2
@@ -199,7 +201,7 @@
 
 ---
 
-# Appendix
+## Appendix
 
 - Include any relevant assets like Python code snippets, SQL queries, charts, Notebook outputs, or data sets that you may have created during this project
 
@@ -207,6 +209,6 @@
 
 ---
 
-# Thank You!
+## Thank You
 
 24

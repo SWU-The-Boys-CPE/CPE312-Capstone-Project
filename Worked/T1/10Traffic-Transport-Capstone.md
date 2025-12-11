@@ -31,10 +31,12 @@ Bangkok's traffic congestion has become a critical urban challenge, with the cit
 This capstone project directly supports the following SDGs:
 
 **SDG 11: Sustainable Cities and Communities**
+
 - Target 11.2: Provide sustainable transport systems through data-driven congestion prediction
 - Indicator: Improved traffic forecasting accuracy enabling better urban planning
 
 **SDG 13: Climate Action**
+
 - Target 13.2: Support climate-informed transportation decisions
 - Indicator: Enable proactive traffic management reducing idle time and emissions
 
@@ -155,6 +157,7 @@ This capstone project directly supports the following SDGs:
 ## 7. Technical Requirements
 
 **Tools & Libraries:**
+
 - Python 3.x
 - Pandas, NumPy (data processing)
 - Scikit-learn (machine learning)
@@ -162,6 +165,7 @@ This capstone project directly supports the following SDGs:
 - Jupyter Notebook (analysis environment)
 
 **Skills Required:**
+
 - Time-series data analysis
 - Feature engineering
 - Machine learning model training and evaluation

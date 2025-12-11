@@ -31,6 +31,7 @@ This directory contains all datasets used in the Bangkok Traffic Congestion Inde
 | **Format** | CSV |
 
 #### Key Statistics
+
 - **Mean TCI:** 38.88
 - **Max TCI:** 162.13
 - **Min TCI:** ~25
@@ -107,4 +108,4 @@ This directory contains all datasets used in the Bangkok Traffic Congestion Inde
 
 ---
 
-*Last Updated: November 2025*
+> *Last Updated: November 2025*

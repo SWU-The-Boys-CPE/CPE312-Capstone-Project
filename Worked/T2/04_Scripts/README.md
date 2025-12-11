@@ -9,9 +9,11 @@ This directory contains reusable Python modules for the Bangkok Traffic Congesti
 ## 📦 Modules
 
 ### 1. utils.py
+
 **Purpose:** Core utility functions
 
 **Key Functions:**
+
 - `setup_logger()` - Configure logging
 - `load_config()` - Parse YAML configuration
 - `validate_dataframe()` - Schema validation
@@ -28,6 +30,7 @@ config = load_config("../06_Configuration/config.yaml")
 ---
 
 ### 2. data_loader.py
+
 **Purpose:** Data loading and validation
 
 **Key Functions:**
@@ -48,6 +51,7 @@ weather_df = load_weather_data("../02_Data/Processed/bangkok_weather_cleaned.csv
 ---
 
 ### 3. preprocessing.py
+
 **Purpose:** Data preprocessing and feature engineering
 
 **Key Functions:**
@@ -65,6 +69,7 @@ df_clean = preprocess_traffic_data(df_raw)
 ---
 
 ### 4. visualization.py
+
 **Purpose:** Visualization utilities
 
 **Key Functions:**
@@ -108,4 +113,4 @@ from visualization import plot_timeseries
 
 ---
 
-*Last Updated: November 2025*
+> *Last Updated: November 2025*

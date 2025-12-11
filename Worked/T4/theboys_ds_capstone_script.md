@@ -5,6 +5,7 @@
 ---
 
 ### **Part 1: Introduction & Project Overview**
+
 **Speaker: Nitipoom Potichai (Project Manager)**
 **Slides: 1-6**
 

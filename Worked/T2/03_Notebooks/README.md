@@ -1,6 +1,7 @@
 # Notebooks Directory
 
 ## Overview
+
 Jupyter notebooks for exploratory data analysis, data preprocessing, feature engineering, and model development.
 
 ## Notebook Organization
@@ -8,18 +9,23 @@ Jupyter notebooks for exploratory data analysis, data preprocessing, feature eng
 ### Execution Order
 
 **Phase 1: Data Exploration**
+
 - `01_Data_Exploration.ipynb` - Initial data loading and overview
 
 **Phase 2: Data Cleaning**
+
 - `02_Data_Cleaning.ipynb` - Data quality assessment and cleaning
 
 **Phase 3: Exploratory Analysis**
+
 - `03_EDA.ipynb` - Statistical analysis and visualization
 
 **Phase 4: Feature Engineering**
+
 - `04_Feature_Engineering.ipynb` - Feature creation and selection
 
 **Phase 5: Modeling**
+
 - `05_Modeling.ipynb` - Model development and training
 - `06_Model_Evaluation.ipynb` (optional) - Detailed model comparison
 
@@ -56,9 +62,11 @@ Each notebook should follow this structure:
 ## Notebook Descriptions
 
 ### 01_Data_Exploration.ipynb
+
 **Purpose:** Load and examine datasets for the first time
 
 **Key Sections:**
+
 - Data source documentation
 - Load raw data from files/APIs
 - Display basic statistics (shape, dtypes, memory usage)
@@ -67,14 +75,17 @@ Each notebook should follow this structure:
 - Identify data quality issues
 
 **Outputs:**
+
 - Data quality assessment report
 - Initial data exploration plots
 - Recommendations for cleaning
 
 ### 02_Data_Cleaning.ipynb
+
 **Purpose:** Clean and prepare data for analysis
 
 **Key Sections:**
+
 - Remove/handle duplicates
 - Address missing values
 - Fix data types
@@ -84,14 +95,17 @@ Each notebook should follow this structure:
 - Save cleaned dataset
 
 **Outputs:**
+
 - Cleaned processed dataset
 - Data cleaning report
 - Transformation documentation
 
 ### 03_EDA.ipynb
+
 **Purpose:** Exploratory Data Analysis - understand patterns and relationships
 
 **Key Sections:**
+
 - Univariate analysis (distributions, summaries)
 - Bivariate analysis (correlations, relationships)
 - Multivariate analysis (patterns, clusters)
@@ -101,14 +115,17 @@ Each notebook should follow this structure:
 - Insights summary
 
 **Outputs:**
+
 - EDA visualizations (histograms, heatmaps, scatter plots)
 - Statistical test results
 - EDA report with findings
 
 ### 04_Feature_Engineering.ipynb
+
 **Purpose:** Create and select features for modeling
 
 **Key Sections:**
+
 - Feature brainstorming
 - Temporal features (hour, day, month, season, holidays)
 - Spatial features (coordinates, clusters, proximity)
@@ -120,14 +137,17 @@ Each notebook should follow this structure:
 - Final feature dataset creation
 
 **Outputs:**
+
 - Feature-engineered dataset
 - Feature importance analysis
 - Feature documentation
 
 ### 05_Modeling.ipynb
+
 **Purpose:** Develop and train machine learning models
 
 **Key Sections:**
+
 - Data splitting (train/val/test)
 - Baseline models (simple average, ARIMA, Random Forest)
 - Advanced models (XGBoost, LSTM, etc.)
@@ -138,15 +158,18 @@ Each notebook should follow this structure:
 - Best model selection
 
 **Outputs:**
+
 - Trained models (saved to 05_Models/)
 - Performance metrics
 - Prediction results
 - Model comparison report
 
 ### 06_Model_Evaluation.ipynb (Optional)
+
 **Purpose:** Detailed evaluation and analysis of best models
 
 **Key Sections:**
+
 - Detailed performance metrics
 - Error analysis
 - Feature importance analysis
@@ -155,6 +178,7 @@ Each notebook should follow this structure:
 - Edge case analysis
 
 **Outputs:**
+
 - Detailed evaluation report
 - Diagnostic plots
 - Recommendations for improvement
@@ -162,6 +186,7 @@ Each notebook should follow this structure:
 ## Best Practices
 
 ### Code Style
+
 - Clear, descriptive variable names
 - Meaningful function names
 - Comments for complex logic
@@ -169,12 +194,14 @@ Each notebook should follow this structure:
 - Consistent indentation (4 spaces)
 
 ### Data Handling
+
 - Never modify original data in-place
 - Document all transformations
 - Save intermediate results
 - Use descriptive variable names
 
 ### Visualization
+
 - Large, readable fonts
 - Clear titles and labels
 - Consistent color schemes
@@ -182,6 +209,7 @@ Each notebook should follow this structure:
 - Grid for readability
 
 ### Documentation
+
 - Markdown headers for sections
 - Explanation of analysis goals
 - Interpretation of results
@@ -189,6 +217,7 @@ Each notebook should follow this structure:
 - Save figures with descriptive names
 
 ### Notebook Execution
+
 - Notebooks should be runnable end-to-end
 - No hardcoded paths (use config)
 - No external dependencies without import statements
@@ -198,6 +227,7 @@ Each notebook should follow this structure:
 ## Required Setup
 
 ### Before Running Notebooks
+
 ```bash
 # Navigate to project root
 cd /Volumes/T9/Documents/CPE/Y3-TR1/CPE312/Capstone\ Project/Worked
@@ -214,6 +244,7 @@ jupyter notebook
 ```
 
 ### Notebook Configuration Cell
+
 Every notebook should start with this configuration:
 
 ```python
@@ -258,12 +289,14 @@ logger.info(f"Data paths configured: {paths}")
 ## Troubleshooting
 
 ### Common Issues
+
 1. **Import errors:** Ensure all packages installed with `pip install -r requirements.txt`
 2. **Path errors:** Use relative paths or `get_data_paths()` from utils
 3. **Memory issues:** Use `reduce_memory_usage()` for large dataframes
 4. **Random results:** Set seed at beginning: `np.random.seed(42)`
 
 ### Debugging
+
 - Use `print()` or logging for debugging
 - Check data shapes and dtypes frequently
 - Save intermediate results for inspection
@@ -272,6 +305,7 @@ logger.info(f"Data paths configured: {paths}")
 ## File Management
 
 ### Saving Outputs
+
 ```python
 # Save figures with timestamp
 fig.savefig(
@@ -289,11 +323,13 @@ joblib.dump(model, f'../05_Models/trained_models/my_model_{get_date_string()}.pk
 ```
 
 ### Cleanup
+
 - Remove large temporary outputs before committing
 - Archive old notebook versions if needed
 - Keep current version in main notebooks directory
 
 ## Related Files
+
 - **Configuration:** `../08_Configuration/`
 - **Scripts:** `../04_Scripts/`
 - **Results:** `../06_Results/`
@@ -303,4 +339,3 @@ joblib.dump(model, f'../05_Models/trained_models/my_model_{get_date_string()}.pk
 
 **Last Updated:** November 16, 2025
 **Notebook Maintainer:** Data Science Team
-
