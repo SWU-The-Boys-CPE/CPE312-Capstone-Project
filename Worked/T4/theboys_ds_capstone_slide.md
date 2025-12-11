@@ -1,6 +1,6 @@
 # Bangkok Traffic Congestion Index Prediction
 ## Capstone Project - CPE312
-### Team: SWU The Boys
+### Team: The Boys
 
 ---
 
@@ -317,7 +317,7 @@ Data-driven insights can transform how we manage Bangkok's traffic, moving from 
 
 **Thank You!**
 
-*Team SWU The Boys*
+*Team The Boys*
 
 - Nitipoom Potichai
 - Veerkawin Naknithichairat

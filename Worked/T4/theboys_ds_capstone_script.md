@@ -1,6 +1,6 @@
 # Script for Capstone Project Presentation
 ## Project: Bangkok Traffic Congestion Index Prediction
-## Team: SWU The Boys
+## Team: The Boys
 
 ---
 
@@ -9,7 +9,7 @@
 **Slides: 1-6**
 
 **(Slide 1: Title Slide)**
-**Nitipoom:** สวัสดีครับอาจารย์และเพื่อนๆ ทุกคน พวกเราทีม **SWU The Boys** วันนี้จะมานำเสนอ Capstone Project ในหัวข้อ **"Bangkok Traffic Congestion Index Prediction"** หรือการทำนายดัชนีรถติดในกรุงเทพมหานครครับ
+**Nitipoom:** สวัสดีครับอาจารย์และเพื่อนๆ ทุกคน พวกเราทีม **The Boys** วันนี้จะมานำเสนอ Capstone Project ในหัวข้อ **"Bangkok Traffic Congestion Index Prediction"** หรือการทำนายดัชนีรถติดในกรุงเทพมหานครครับ
 
 **(Slide 2: Agenda)**
 **Nitipoom:** สำหรับหัวข้อที่เราจะพูดถึงในวันนี้ (Agenda) จะเริ่มตั้งแต่ที่มาและความสำคัญของปัญหา เป้าหมายของโปรเจกต์ การจัดการข้อมูล การสร้างโมเดล ไปจนถึงผลลัพธ์และข้อเสนอแนะทางธุรกิจครับ
@@ -162,5 +162,5 @@
 **Krittapas:** ในอนาคต เราอยากทำนายแบบ Real-time รายชั่วโมง และเจาะจงรายเขตครับ
 **บทสรุป:** โปรเจกต์นี้พิสูจน์แล้วว่า เราสามารถทำนายรถติดได้แม่นยำถึง 96% และค้นพบว่า "อุณหภูมิ" คือตัวแปรสำคัญที่ถูกมองข้ามครับ
 
-พวกเราทีม **SWU The Boys** ขอจบการนำเสนอเพียงเท่านี้ครับ ขอบคุณครับ!
+พวกเราทีม **The Boys** ขอจบการนำเสนอเพียงเท่านี้ครับ ขอบคุณครับ!
 (Q&A Session)

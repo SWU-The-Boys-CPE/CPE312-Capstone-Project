@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd:*)",
+      "Bash(jupyter nbconvert:*)",
+      "Bash(python -m jupyter:*)",
+      "Bash(python3 -m jupyter:*)",
+      "Bash(source:*)",
+      "Bash(/Volumes/T9/Documents/01-computer-engineer/Y3-TR1/CPE312/Capstone\\ Project/.venv/bin/python:*)",
+      "Bash(/Volumes/T9/Documents/01-computer-engineer/Y3-TR1/CPE312/Capstone\\ Project/.venv/bin/python -m jupyter:*)",
+      "Bash(/Volumes/T9/Documents/01-computer-engineer/Y3-TR1/CPE312/Capstone\\ Project/.venv/bin/pip install:*)",
+      "Bash(PYENV_VERSION=3.11.10 /Users/nitiptc/.pyenv/versions/3.11.10/bin/python -m pip install:*)",
+      "Bash(PYENV_VERSION=3.11.10 /Users/nitiptc/.pyenv/versions/3.11.10/bin/python -m nbconvert:*)",
+      "Bash(python3 -c:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

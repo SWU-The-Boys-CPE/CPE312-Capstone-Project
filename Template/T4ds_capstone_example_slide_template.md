@@ -2,7 +2,7 @@
 # Srisupang Thewsuwan
 ## November 2024
 
-1
+Slide 1
 
 ---
 
@@ -15,7 +15,7 @@
 - Conclusion
 - Appendix
 
-2
+Slide 2
 
 ---
 
@@ -23,7 +23,7 @@
 
 - อธิบายภาพรวมของวิธีการทั้งหมด และผลลัพธ์จากการศึกษา
 
-3
+Slide 3
 
 ---
 
@@ -31,13 +31,13 @@
 
 - The task involved gathering data on SpaceX to create dashboards and predict whether the first stage of the Falcon 9 will be reused, ultimately determining launch costs.
 
-4
+Slide 4
 
 ---
 
 # Section 1: Methodology
 
-5
+Slide 5
 
 ---
 
@@ -51,7 +51,7 @@
 - Perform exploratory data analysis (EDA) using visualization
 - Perform predictive analysis using classification models
 
-6
+Slide 6
 
 ---
 
@@ -60,7 +60,7 @@
 - The API provides data on past launches, including rocket details, payloads, and landing outcomes, accessible through the endpoint `api.spacexdata.com/v4/launches/past`.
 - Data is retrieved using a GET request with the requests library, and the response is in JSON format, which can be converted into a dataframe using the `json_normalize` function.
 
-7
+Slide 7
 
 ---
 
@@ -70,7 +70,7 @@
 - Present your data collection with SpaceX REST calls using key phrases and flowcharts
 - Add the GitHub URL of the completed SpaceX API calls notebook (must include completed code cell and outcome cell), as an external reference and peer-review purpose
 
-8
+Slide 8
 
 ---
 
@@ -80,7 +80,7 @@
 - You need to present your data wrangling process using key phrases and flowcharts
 - Add the GitHub URL of your completed data wrangling related notebooks, as an external reference and peer-review purpose
 
-9
+Slide 9
 
 ---
 
@@ -89,7 +89,7 @@
 - Summarize what charts were plotted and why you used those charts
 - Add the GitHub URL of your completed EDA with data visualization notebook, as an external reference and peer-review purpose
 
-10
+Slide 10
 
 ---
 
@@ -99,7 +99,7 @@
 - You need present your model development process using key phrases and flowchart
 - Add the GitHub URL of your completed predictive analysis lab, as an external reference and peer-review purpose
 
-11
+Slide 11
 
 ---
 
@@ -109,13 +109,13 @@
 - Interactive analytics demo in screenshots
 - Predictive analysis results
 
-12
+Slide 12
 
 ---
 
 # Insights drawn from EDA
 
-13
+Slide 13
 
 ---
 
@@ -124,7 +124,7 @@
 - Show a scatter point of payload vs. orbit type
 - Show the screenshot of the scatter plot with explanations
 
-14
+Slide 14
 
 ---
 
@@ -133,7 +133,7 @@
 - Show a line chart of yearly average success rate
 - Show the screenshot of the scatter plot with explanations
 
-15
+Slide 15
 
 ---
 
@@ -142,7 +142,7 @@
 - Find the names of the unique launch sites
 - Present your query result with a short explanation here
 
-16
+Slide 16
 
 ---
 
@@ -151,7 +151,7 @@
 - Calculate the total payload carried by boosters from NASA
 - Present your query result with a short explanation here
 
-17
+Slide 17
 
 ---
 
@@ -160,13 +160,13 @@
 - Find the dates of the first successful landing outcome on ground pad
 - Present your query result with a short explanation here
 
-18
+Slide 18
 
 ---
 
 # Section 3: Predictive Analysis Results
 
-19
+Slide 19
 
 ---
 
@@ -175,7 +175,7 @@
 - Visualize the built model accuracy for all built classification models, in a bar chart
 - Find which model has the highest classification accuracy
 
-20
+Slide 20
 
 ---
 
@@ -183,7 +183,7 @@
 
 - Show the confusion matrix of the best performing model with an explanation
 
-21
+Slide 21
 
 ---
 
@@ -195,7 +195,7 @@
 - Point 4
 - ...
 
-22
+Slide 22
 
 ---
 
@@ -203,10 +203,10 @@
 
 - Include any relevant assets like Python code snippets, SQL queries, charts, Notebook outputs, or data sets that you may have created during this project
 
-23
+Slide 23
 
 ---
 
 # Thank You!
 
-24
+Slide 24
