@@ -18,8 +18,8 @@
 !05_Models/README.md
 
 # Large Processed Data
-02_Data/Processed/*.csv
-02_Data/Processed/*.parquet
+# 02_Data/Processed/*.csv
+# 02_Data/Processed/*.parquet
 !02_Data/Processed/README.md
 
 # Results & Outputs
